@@ -110,7 +110,26 @@ Total Restaurants = DISTINCTCOUNT(fact_table[name] )
 
 Rest. with online order = CALCULATE(DISTINCTCOUNT(fact_table[name]), (fact_table[book_table]) = "No")
 
+## **Key Insights**
 
+- North Indian Cuisine is the Most Offered Cuisine in the Bangalore Region Indicating that it has a high Popularity among region, but the top 5 dishes liked are not North Indian.
+- Ratings are Directly proportional to number of votes.Also we can see that as the cost of the food increases, ratings tends to increase which is surprising, as votes and ratings have a generally directly proportional
+  relationship from the graph. Also after a certain threshold of food price which is like 1500-1700, most ratings are in the range of 4+ which means that at this and above price range, the food quality and services are
+  typically similar to restaurants offering food at higher prices.  
+- Also most popular outlets are the one where price range is less than 3000 rupees.
+- The priciest location tend to have high ratings while less votes meaning that the locations offer better food, but are less popular.
+- The Restaurants offering table booking tend to be 2x more costly than one that are offering online orders which could mean that the restaurants might be very busy as charging 2x the price is something that many
+  restaurants don't do. 
+
+## **Skills Demonstrated**
+
+- Data Cleaning
+- Data Modeling
+- Data Interpretation
+- DAX Calculations
+- Interactive Design
+- Business Analysis
+- Data Storytelling
 
 
 

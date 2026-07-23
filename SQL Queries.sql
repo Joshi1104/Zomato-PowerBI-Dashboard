@@ -44,12 +44,16 @@ LIMIT 5;
 -- Question 5:-	What are the top liked dishes (top 5).
 -- ========================================================================================
 
-SELECT TRIM(dish) AS dish, COUNT(DISH) AS total_times_liked
-FROM customer_data,
-JSON_TABLE(
-    CONCAT('["', REPLACE(dish_liked, ',', '","'), '"]'),
-    '$[*]' COLUMNS(dish VARCHAR(100) PATH '$')
-) AS extracted_dish GROUP BY TRIM(dish) ORDER BY total_times_liked DESC LIMIT 5;
+SELECT
+	TRIM(dish) AS dish, COUNT(DISH) AS total_times_liked
+FROM
+	customer_data,
+		JSON_TABLE(
+   		CONCAT('["', REPLACE(dish_liked, ',', '","'), '"]'),
+    	'$[*]' COLUMNS(dish VARCHAR(100) PATH '$')) AS extracted_dish
+GROUP BY TRIM(dish)
+ORDER BY total_times_liked DESC
+LIMIT 5;
 
 -- ========================================================================================
 -- Question 6:	What are the restaurants with high votes, but poor ratings.
@@ -84,9 +88,13 @@ LIMIT 10;
 -- Question 8:	Which restaurant has the highest number of cuisines types to offer.
 -- ========================================================================================
 
-SELECT name, LENGTH(cuisines) - LENGTH(REPLACE(cuisines, ',', '')) + 1 
-  as total_cuisines FROM customer_data
-GROUP BY name, total_cuisines ORDER BY total_cuisines DESC LIMIT 5;
+SELECT
+	name, LENGTH(cuisines) - LENGTH(REPLACE(cuisines, ',', '')) + 1 as total_cuisines
+FROM
+	customer_data
+GROUP BY name, total_cuisines
+ORDER BY total_cuisines DESC
+LIMIT 5;
 
 -- ========================================================================================
 -- Question 9:	Which restaurant has a highest no. of dishes liked.

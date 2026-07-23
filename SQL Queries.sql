@@ -114,11 +114,11 @@ LIMIT 5;
 -- Question 10: Which restaurant has the lowest cost to rating value.
 -- ========================================================================================
 
-SELECT 
-    name,
-     ROUND(AVG(ratings), 1) AS ratings,
-	 ROUND(AVG(votes), 0) AS votes,
-     ROUND(AVG(cost), 0) AS cost
+SELECT
+	name,
+	ROUND(AVG(ratings), 1) AS ratings,
+	ROUND(AVG(votes), 0) AS votes,
+    ROUND(AVG(cost), 0) AS cost
 FROM
     customer_data
 GROUP BY name
